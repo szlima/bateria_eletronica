@@ -1,0 +1,18 @@
+:root{
+  --cinza-claro: #b3b3b3;
+  --cinza-medio: #8d8d8d;
+  --cinza-escuro: #424242;
+  --laranja: #ffa500;  
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body{
+  width: 100vw;
+  height: 100vh;
+}
