@@ -60,3 +60,32 @@ body{
   justify-content: space-between;
   align-items: center;
 }
+
+#sons{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.drum-pad{
+  background-color: var(--cinza-medio);
+  width: 100px;
+  height: 80px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  font-weight: bold;
+  font-size: 1.1rem;
+  
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px var(--cinza-escuro);
+}
+
+.drum-pad:hover{  
+  cursor: pointer;
+}
