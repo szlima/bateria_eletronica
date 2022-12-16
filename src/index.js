@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 
 import './index.css';
 
+import Bateria from './componentes/Bateria';
+
 ReactDOM.render(
-  <h1>Bateria eletrônica</h1>,
+  <Bateria/>,
   document.querySelector('#root')
 );
