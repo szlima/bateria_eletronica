@@ -89,3 +89,38 @@ body{
 .drum-pad:hover{  
   cursor: pointer;
 }
+
+#botoes{
+  width: 40%;
+  height: 100%;
+  padding: 10px;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-check-input, .form-check .form-check-label{
+  font-size: 1.4rem;
+}
+
+.form-check-input, .form-check-input:checked{
+  border: 0;
+}
+
+.form-check-input:checked{
+  background-color: var(--cinza-escuro);
+}
+
+#display{
+  width: 200px;
+  height: 50px;
+  background-color: var(--cinza-medio);
+  color: var(--cinza-escuro);
+  font-weight: bold;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
