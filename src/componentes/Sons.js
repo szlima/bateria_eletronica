@@ -1,8 +1,7 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
-import {audios} from '../dados';
-
-function Sons(){
+function Sons({audios}){
 
     return (
         <div id='sons'>
@@ -17,4 +16,8 @@ function Sons(){
       );
 }
 
-export default Sons;
+const mapStateToProps= state => ({
+  audios: state.bateriaReducer.audios
+});
+
+export default connect(mapStateToProps)(Sons);
