@@ -1,7 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-function Botoes({power, display, volume, bank}){
+import {trocarVolumeAction, trocarPowerAction, trocarBankAction} from '../redux/actions/actionCreators';
+
+function Botoes({power, display, volume, bank, trocarVolume, trocarPower, trocarBank}){
 
     return (
         <div id='botoes'>
@@ -9,16 +11,18 @@ function Botoes({power, display, volume, bank}){
           <div className='form-check form-switch'>
             <label className='form-check-label' htmlFor='power'>Power</label>
             <input className='form-check-input' type='checkbox' 
-              id='power' name='power' defaultChecked={power}/>
+              id='power' name='power' defaultChecked={power} onClick={trocarPower}/>
           </div>
     
           <div id='display'>{display}</div>
     
-          <input type="range" className="form-range" id="volume" value={volume}/>
+          <input type="range" className="form-range" id="volume" 
+            value={volume} onInput={e => trocarVolume(e.target.value)}/>
     
           <div className='form-check form-switch'>
             <label className='form-check-label' htmlFor='bank'>Bank</label>
-            <input className='form-check-input' type='checkbox' id='bank' name='bank' defaultChecked={bank}/>
+            <input className='form-check-input' type='checkbox' 
+              id='bank' name='bank' defaultChecked={bank} onClick={trocarBank}/>
           </div>
           
        </div>   
@@ -32,4 +36,10 @@ const mapStateToProps= state => ({
   bank: state.bateriaReducer.bank
 });
 
-export default connect(mapStateToProps)(Botoes);
+const mapDispatchToProps= dispatch => ({
+  trocarVolume: volume => dispatch(trocarVolumeAction(volume)), 
+  trocarPower: () => dispatch(trocarPowerAction()), 
+  trocarBank: () => dispatch(trocarBankAction())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Botoes);
