@@ -74,6 +74,7 @@ body{
   background-color: var(--cinza-medio);
   width: 100px;
   height: 80px;
+  transition: .5s;
   
   display: flex;
   justify-content: center;
@@ -88,6 +89,10 @@ body{
 
 .drum-pad:hover{  
   cursor: pointer;
+}
+
+.drum-pad:active{
+  background-color: var(--laranja);
 }
 
 #botoes{
@@ -123,4 +128,45 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media only screen and (max-width:676px){
+  #root > div{
+    width: 100%;
+    height: 100vh;
+  }
+  
+  #drum-machine{
+    height: 95%;
+    flex-direction: column;
+    padding: 0;
+  }
+    
+  #sons{
+    width: 80%;
+    height: 50%;
+  }
+  
+  #botoes{
+    width: 100%;
+    margin: 20px;
+    height: 40%;
+  }
+  
+  .drum-pad{
+    width: 20vw;
+    height: 60px;
+  }
+  
+  .form-check-input, .form-check .form-check-label{
+    font-size: 1.3rem;
+  }
+  
+  #display{
+    height: 30px;
+  }
+  
+  #display, #volume{
+    width: 50%;
+  }
 }
