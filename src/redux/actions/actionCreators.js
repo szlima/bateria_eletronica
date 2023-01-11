@@ -27,8 +27,14 @@ export const tocarAudioAction= audio => {
 
     if(getState().bateriaReducer.power){
       const som= document.querySelector('#'+audio.tecla);
-      som.volume= getState().bateriaReducer.volume/100;
+      const botao= document.querySelector(`#drum${audio.tecla}`);
+
+      som.volume= getState().bateriaReducer.volume/100;      
+      botao.classList.add('drum-pad-ativo');
       som.play();
+      
+      setTimeout(() => botao.classList.remove('drum-pad-ativo')
+                , 500);
 
       dispatch(tocarAction(audio.descricao));
     }

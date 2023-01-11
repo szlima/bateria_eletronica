@@ -13,7 +13,7 @@ function Som({audio, tocar}){
     }, []);
 
     return (
-        <div className='drum-pad' id={audio.descricao} onClick={() => tocar(audio)}>
+        <div className='drum-pad' id={`drum${audio.tecla}`} onClick={() => tocar(audio)}>
             {audio.tecla}
             <audio className='clip' id={audio.tecla} src={audio.link}/>             
         </div>
