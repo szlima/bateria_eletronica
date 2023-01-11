@@ -22,12 +22,12 @@ const tocarAction= descricao => ({
   }
 });
 
-export const tocarAudioAction= (audio, power, volume) => {
-  return dispatch => {
+export const tocarAudioAction= audio => {
+  return (dispatch, getState) => {
 
-    if(power){
+    if(getState().bateriaReducer.power){
       const som= document.querySelector('#'+audio.tecla);
-      som.volume= volume/100;
+      som.volume= getState().bateriaReducer.volume/100;
       som.play();
 
       dispatch(tocarAction(audio.descricao));
