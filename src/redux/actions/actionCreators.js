@@ -1,21 +1,49 @@
 import {TROCAR_VOLUME, TROCAR_POWER, TROCAR_BANK, TOCAR_AUDIO} from './actionTypes';
 
-export const trocarVolumeAction= volume => ({
+const trocarVolume= volume => ({
     type: TROCAR_VOLUME,
     payload: {
       volume
     }
 });
+
+export const trocarVolumeAction= volume => {
+  return (dispatch, getState) => {
+
+    if(getState().bateriaReducer.power)
+      dispatch(trocarVolume(volume));
+  };
+};
   
-export const trocarPowerAction= () => ({
-    type: TROCAR_POWER
+const trocarPower= () => ({
+    type: TROCAR_POWER    
 });
+
+export const trocarPowerAction= () => {
+  return (dispatch, getState) => {
+
+    if(getState().bateriaReducer.power)
+      document.querySelector("#bank").disabled = true;
+    else
+      document.querySelector("#bank").disabled = false;
+
+    dispatch(trocarPower());
+  };
+};
   
-export const trocarBankAction= () => ({
+const trocarBank= () => ({
     type: TROCAR_BANK
 });
+
+export const trocarBankAction= () => {
+  return (dispatch, getState) => {
+
+    if(getState().bateriaReducer.power)
+      dispatch(trocarBank());
+  };
+};
   
-const tocarAction= descricao => ({
+const tocarAudio= descricao => ({
   type: TOCAR_AUDIO,
   payload: {
     descricao
@@ -36,7 +64,7 @@ export const tocarAudioAction= audio => {
       setTimeout(() => botao.classList.remove('drum-pad-ativo')
                 , 500);
 
-      dispatch(tocarAction(audio.descricao));
+      dispatch(tocarAudio(audio.descricao));
     }
   };
 }
