@@ -1,4 +1,6 @@
-import {TROCAR_VOLUME, TROCAR_POWER, TROCAR_BANK, TOCAR_AUDIO} from '../actions/actionTypes';
+import {
+  TROCAR_VOLUME, TROCAR_POWER, TROCAR_BANK, TOCAR_AUDIO, LIMPAR_DISPLAY
+} from '../actions/actionTypes';
 
 import {playlists} from '../../dados';
 
@@ -18,6 +20,12 @@ export default function bateriaReducer(state=inicio, action){
           ...state,
           volume: action.payload.volume,
           display: 'Volume: ' + action.payload.volume
+        };
+
+      case LIMPAR_DISPLAY:
+        return {
+          ...state,
+          display: ''
         };
         
       case TOCAR_AUDIO:

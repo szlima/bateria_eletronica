@@ -2,3 +2,4 @@ export const TROCAR_VOLUME= 'TROCAR_VOLUME';
 export const TROCAR_POWER= 'TROCAR_POWER';
 export const TROCAR_BANK= 'TROCAR_BANK';
 export const TOCAR_AUDIO= 'TOCAR_AUDIO';
+export const LIMPAR_DISPLAY= 'LIMPAR_DISPLAY';

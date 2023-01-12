@@ -1,4 +1,6 @@
-import {TROCAR_VOLUME, TROCAR_POWER, TROCAR_BANK, TOCAR_AUDIO} from './actionTypes';
+import {
+  TROCAR_VOLUME, TROCAR_POWER, TROCAR_BANK, TOCAR_AUDIO, LIMPAR_DISPLAY
+} from './actionTypes';
 
 const trocarVolume= volume => ({
     type: TROCAR_VOLUME,
@@ -7,11 +9,18 @@ const trocarVolume= volume => ({
     }
 });
 
+const limparDisplay= () => ({
+  type: LIMPAR_DISPLAY
+});
+
 export const trocarVolumeAction= volume => {
   return (dispatch, getState) => {
 
-    if(getState().bateriaReducer.power)
+    if(getState().bateriaReducer.power){
       dispatch(trocarVolume(volume));
+      setTimeout(() => dispatch(limparDisplay())
+      , 700);
+    }
   };
 };
   
