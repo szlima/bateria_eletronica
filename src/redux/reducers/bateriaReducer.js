@@ -1,9 +1,9 @@
 import {TROCAR_VOLUME, TROCAR_POWER, TROCAR_BANK, TOCAR_AUDIO} from '../actions/actionTypes';
 
-import {audios} from '../../dados';
+import {playlists} from '../../dados';
 
 const inicio= {
-    audios,
+    audios: playlists[0].audios,
     display: '',
     volume: 50,
     power: true,
@@ -36,7 +36,9 @@ export default function bateriaReducer(state=inicio, action){
       case TROCAR_BANK:
         return {
           ...state,
-          bank: !state.bank
+          bank: !state.bank,
+          audios: playlists[+(!state.bank)].audios,
+          display: playlists[+(!state.bank)].nome
         };
         
       default:
