@@ -2,6 +2,8 @@ import {
   TROCAR_VOLUME, TROCAR_POWER, TROCAR_BANK, TOCAR_AUDIO, LIMPAR_DISPLAY
 } from './actionTypes';
 
+import {playlists} from '../../dados';
+
 const trocarVolume= volume => ({
     type: TROCAR_VOLUME,
     payload: {
@@ -40,15 +42,23 @@ export const trocarPowerAction= () => {
   };
 };
   
-const trocarBank= () => ({
-    type: TROCAR_BANK
+const trocarBank= (audios, display) => ({
+    type: TROCAR_BANK,
+    payload: {
+      audios,
+      display
+    }
 });
 
 export const trocarBankAction= () => {
   return (dispatch, getState) => {
 
-    if(getState().bateriaReducer.power)
-      dispatch(trocarBank());
+    if(getState().bateriaReducer.power){
+      const audios= playlists[+(!getState().bateriaReducer.bank)].audios;
+      const display= playlists[+(!getState().bateriaReducer.bank)].nome;
+
+      dispatch(trocarBank(audios, display));
+    }
   };
 };
   

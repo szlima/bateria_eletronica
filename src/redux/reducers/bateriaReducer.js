@@ -45,8 +45,8 @@ export default function bateriaReducer(state=inicio, action){
         return {
           ...state,
           bank: !state.bank,
-          audios: playlists[+(!state.bank)].audios,
-          display: playlists[+(!state.bank)].nome
+          audios: action.payload.audios,
+          display: action.payload.display
         };
         
       default:
