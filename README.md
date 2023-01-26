@@ -1,6 +1,8 @@
 # Bateria eletrônica
 
-Uma bateria eletrônica é apresentada nesta aplicação. Este projeto foi desenvolvido para obter a certificação em Bibliotecas de Desenvolvimento Front-End na plataforma freeCodeCamp.
+Uma bateria musical é apresentada nesta aplicação. Sons podem ser reproduzidos através de clique nos componentes ou via teclado. Também é possível escolher quais tipos de sons serão tocados, altura do volume e ligar/desligar a bateria.
+
+Este projeto foi desenvolvido para obter a certificação em Bibliotecas de Desenvolvimento Front-End na plataforma freeCodeCamp.
 
 ##  :gear: Tecnologias
 
